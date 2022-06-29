@@ -1,8 +1,9 @@
 const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ForkTsCheckerWEbpackPlugin = require("fork-ts-checker-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
@@ -29,6 +30,10 @@ module.exports = {
                 ],
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
+            },
         ],
     },
 
@@ -37,6 +42,10 @@ module.exports = {
             template: "./src/index.html",
             filename: "index.html",
         }),
+        // new CopyWebpackPlugin({
+        //     patterns: [{ from: "public" }],
+        // }),
         new ForkTsCheckerWEbpackPlugin(),
+        new MiniCssExtractPlugin(),
     ],
 };

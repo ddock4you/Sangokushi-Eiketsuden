@@ -1,11 +1,14 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-// import ReactDOM from 'react-dom';
+import DosPlayer from "./DosPlayer";
 
 interface Props {}
 
 const App = ({}: Props) => {
-    return <h1>리액트 + 타입스크립트 + 바벨 + 웹팩</h1>;
+    return (
+        <div className="App" style={{ width: "640px", height: "400px" }}>
+            <DosPlayer bundleUrl="/public/romance.jsdos" />
+        </div>
+    );
 };
 
 export default App;
