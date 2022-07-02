@@ -17,6 +17,7 @@
       "node_modules",
       "build",
       "scripts",
+      "public",
       "acceptance-tests",
       "webpack",
       "jest",
